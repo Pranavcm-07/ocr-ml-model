@@ -74,7 +74,7 @@ def crop():
     import cv2
 
     # Load the input image
-    image = cv2.imread('WhatsApp Image 2024-04-29 at 17.41.46.jpeg')
+    image = cv2.imread('images/WhatsApp Image 2024-04-29 at 17.41.46.jpeg')
 
     # Define bounding box coordinates or regions of interest (ROIs)
     bounding_boxes = [(63,0,126,173),(320,0,382,167), (564,0,631,174)]  # List of tuples (x1, y1, x2, y2) representing bounding boxes
@@ -88,10 +88,10 @@ def crop():
 
     # Output the cropped images
     for i, cropped_image in enumerate(cropped_images):
-        cv2.imwrite(f'cropped_image_{i}.jpg', cropped_image)  # Save each cropped image to a file
+        cv2.imwrite(f'images/cropped_image_{i}.jpg', cropped_image)  # Save each cropped image to a file
 
 
-image_path=['cropped_image_0.jpg','cropped_image_1.jpg','cropped_image_2.jpg']
+image_path=['images/cropped_image_0.jpg','images/cropped_image_1.jpg','images/cropped_image_2.jpg']
 crop()
 for image in image_path:
     hdr(image)
