@@ -22,7 +22,6 @@ def hdr(img):
     for contour in contours:
         area = cv2.contourArea(contour)
         x,y,w,h = cv2.boundingRect(contour)
-        print(w,h)
 
         width = w
         height = h
@@ -50,8 +49,8 @@ def hdr(img):
     print("\n\n\n----------------Contoured Image--------------------")
     plt.imshow(image, cmap="gray")
     plt.show()
-        
     inp = np.array(preprocessed_digits)
+    print("after np array")
     out = []
     for digit in preprocessed_digits:
         prediction = model.predict(digit.reshape(1, 28, 28, 1))  
