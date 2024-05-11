@@ -1,55 +1,7 @@
 import cv2
-import matplotlib.pyplot as plt
 from boxdetect.pipelines import get_boxes
 from boxdetect import config
 from boxdetect.img_proc import draw_rects, get_image
-
-# file_path = 'images/attendance-sheet.jpeg'
-
-
-# cfg = config.PipelinesConfig()
-
-# # important to adjust these values to match the size of boxes on your image
-# cfg.width_range = (20,35)
-# cfg.height_range = (20,35)
-
-# # the more scaling factors the more accurate the results but also it takes more time to processing
-# # too small scaling factor may cause false positives
-# # too big scaling factor will take a lot of processing time
-# cfg.scaling_factors = [1.0]
-
-# # w/h ratio range for boxes/rectangles filtering
-# cfg.wh_ratio_range = (0.5, 1.8)
-
-# # range of groups sizes to be returned
-# cfg.group_size_range = (1, 100)
-
-# # for this image we will use rectangles as a kernel for morphological transformations
-# cfg.morph_kernels_type = 'rectangles'  # 'lines'
-
-# # num of iterations when running dilation tranformation (to engance the image)
-# cfg.dilation_iterations = 0
-
-# rects, grouping_rects, image, output_image = get_boxes(
-#     file_path, cfg=cfg, plot=False)
-
-# out_img = draw_rects(get_image(file_path), rects, thickness=3)
-
-# plt.figure(figsize=(15,20))
-# plt.imshow(out_img)
-# plt.show()
-# org_img = cv2.imread(file_path)
-# sorted_rects = sorted(rects, key=lambda x: x[1])
-
-# for rect in sorted_rects[10:]:
-#     x1 = rect[0]
-#     x2 = x1 + rect[2]
-#     y1 = rect[1]
-#     y2 = y1 + rect[3]
-#     plt.figure(figsize=(1,1))
-#     plt.imshow(org_img[y1:y2, x1:x2])
-#     plt.show()
-import cv2
 import numpy as np
 from keras.datasets import mnist
 from keras.layers import Dense, Flatten
@@ -141,8 +93,8 @@ def hdr(file_path):
 
     for i in range(len(present)):
         print('student',i+1,'is present for {} days and absent for {}'.format(present[i],10-present[i]))
-    return output
+    return present
 
 # Call the function with the image file path
 output = hdr('images/yuvan1.jpeg')
-# print("Predictions:", output)
+print("Predictions:", output)

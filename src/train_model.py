@@ -7,6 +7,7 @@ from keras.layers import Conv2D, MaxPooling2D
 from keras import backend as K
 import numpy as np
 import matplotlib.pyplot as plt
+import tensorflow as tf
 
 # the data, split between train and test sets
 (x_train, y_train), (x_test, y_test) = mnist.load_data()
@@ -31,6 +32,7 @@ print(x_test.shape[0], 'test samples')
 num_classes = 10
 
 
+# model = tf.keras.models.load_model('mnist.h5')
 model = Sequential()
 model.add(Conv2D(32, kernel_size=(3, 3),activation='relu',input_shape=input_shape))
 model.add(Conv2D(64, (3, 3), activation='relu'))
@@ -51,4 +53,7 @@ model.save('mnist.h5')
 score = model.evaluate(x_test, y_test, verbose=0)
 print('Test loss:', score[0])
 print('Test accuracy:', score[1])
-
+# converter = tf.lite.TFLiteConverter.from_keras_model(model)
+# tfmodel = converter.convert()
+# with open('mnist.tflite', 'wb') as f:
+#     f.write(tfmodel)
